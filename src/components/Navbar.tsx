@@ -26,6 +26,12 @@ const Navbar = () => {
     );
 
     gsap.fromTo(
+      "#nav #openMenu",
+      { opacity: 0, x: 50 },
+      { opacity: 1, x: 0, duration: 1, ease: "power2.out" }
+    );
+
+    gsap.fromTo(
       ".navLinkItem",
       { opacity: 0, y: -20 },
       {
@@ -64,6 +70,20 @@ const Navbar = () => {
           ease: "power2.out",
         }
       );
+
+      tl.current.fromTo(
+        "#menu .navLinkItem",
+        {
+          opacity: 0,
+          x: 100,
+          delay: -1,
+        },
+        {
+          opacity: 1,
+          x: 0,
+          stagger: 0.05,
+        }
+      );
     });
   }, []);
 
@@ -95,10 +115,12 @@ const Navbar = () => {
   }, []);
 
   const openMenu = () => {
+    navRef.current?.classList.add("active");
     tl.current?.play();
   };
 
   const closeMenu = () => {
+    navRef.current?.classList.remove("active");
     tl.current?.reverse();
   };
 
