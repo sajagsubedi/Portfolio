@@ -1,13 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #050505;
+  --foreground: #efeeee;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  /* colors */
+  --color-primary: #3b82f6;
+  --color-accent: #06b6d4;
+  --color-primary-blur: rgba(30, 41, 59, 0.3);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -19,8 +25,132 @@
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+* {
+  @apply m-0 p-0 box-border;
+}
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3b82f6;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2563eb;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-accent) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Neon glow effect */
+.neon-glow {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+/* Hover animations */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+}
+
+#nav {
+  @apply flex flex-col md:flex-row w-full max-h-20 sticky top-0 items-center justify-between z-50;
+}
+
+#nav #phoneVisible {
+  @apply w-full flex justify-between h-full items-center px-5 py-5 md:w-max;
+}
+#nav .menuToggle {
+  @apply text-primary md:hidden;
+}
+#nav .menuToggle {
+  @apply text-xl;
+}
+
+#nav #logo {
+  @apply flex gap-2 items-center w-full md:w-max;
+}
+
+#nav h2 {
+  @apply text-primary font-bold text-2xl;
+}
+
+#nav #logo img {
+  @apply flex gap-2 items-center;
+}
+
+#nav #menu {
+  @apply flex flex-col absolute w-1/2 h-screen self-end backdrop-blur-sm bg-primary-blur transition-all ease-in duration-150 justify-center items-center;
+  @apply md:flex-row md:h-full md:backdrop-blur-none md:items-center md:w-max md:static md:bg-transparent md:self-center;
+}
+
+#nav .crossIcon {
+  @apply flex justify-end md:hidden p-5 h-20 w-full;
+}
+
+#nav #menu .navLinks {
+  @apply flex flex-col md:flex-row w-full h-full justify-around md:gap-16 px-5;
+}
+#nav #menu .navLinkItem {
+  @apply flex flex-col h-8 overflow-hidden items-center;
+}
+
+#nav #menu .navLink {
+  @apply text-white text-lg  top-0 transition-transform duration-300 w-max;
+}
+
+#nav #menu .hoverLink {
+  @apply text-primary text-lg p-1
+   bottom-0 transition-transform duration-300 border-b border-primary w-max;
+  transform: translateY(100%);
+}
+
+#nav #menu .navLinkItem:hover .navLink {
+  transform: translateY(-200%);
+}
+
+#nav #menu .navLinkItem:hover .hoverLink {
+  transform: translateY(-100%);
+}
+
+#cursor {
+  @apply h-6 w-6 rounded-full bg-transparent fixed z-[999] invisible md:visible transition-all ease-out duration-75 border-2 border-primary;
+  @apply pointer-events-none;
+  transform: translate(-50%, -50%);
+}
+
+#cursor .inner-dot {
+  @apply h-1 w-1 bg-primary rounded-full absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#cursor.hoverCursor {
+  @apply h-20 w-20 bg-transparent shadow-none border-4 border-primary;
+  @apply pointer-events-none;
+}
+
+#cursor.hoverCursor .inner-dot {
+  @apply hidden;
 }
