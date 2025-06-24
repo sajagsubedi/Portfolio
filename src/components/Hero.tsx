@@ -136,7 +136,7 @@ const Hero: React.FC = () => {
             experience.
           </p>
 
-          <div className="hero-buttons flex flex-col sm:flex-row gap-4 justify-center mb-16">
+          <div className="hero-buttons flex flex-row gap-4 justify-center mb-16">
             <button className="primaryButton hover-lift neon-glow btn-md">
               View My Work
             </button>

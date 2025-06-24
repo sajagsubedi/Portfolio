@@ -24,7 +24,9 @@
     --foreground: #ededed;
   }
 }
-
+html {
+  scroll-behavior: smooth;
+}
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
@@ -35,12 +37,16 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3b82f6;
+  background: linear-gradient(
+    180deg,
+    var(--color-primary) 0%,
+    var(--color-accent) 100%
+  );
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #2563eb;
+  background: var(--color-accent);
 }
 
 /* Gradient text */
@@ -76,7 +82,7 @@
 
 /* utility classes */
 .btn-md {
-  @apply py-4 px-8;
+  @apply py-4  px-4 sm:px-8;
 }
 .primaryButton {
   @apply rounded-lg font-semibold transition-all duration-300;
@@ -167,6 +173,14 @@
 }
 
 #nav #menu .navLinkItem:hover .hoverLink {
+  transform: translateY(-100%);
+}
+
+#nav #menu .navLinkItem.active .navLink {
+  transform: translateY(-200%);
+}
+
+#nav #menu .navLinkItem.active .hoverLink {
   transform: translateY(-100%);
 }
 

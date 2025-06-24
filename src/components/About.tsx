@@ -55,14 +55,15 @@ const About: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="about-image">
             <div className="relative">
-              <div className="w-96 h-96 mx-auto">
+              <div className="mx-auto w-max">
                 <div className="w-full h-full bg-slate-800 rounded-full flex items-center justify-center">
                   <Image
-                    className="rounded-full h-96 w-96 object-cover bg-gradient-to-br from-primary to-accent p-1"
+                    className="rounded-full w-64 sm:w-80 md:w-96 object-cover bg-gradient-to-br from-primary to-accent p-1"
                     src={"/user.jpg"}
-                    alt="user"
                     width={500}
                     height={500}
+                    alt="user"
+                    loading="lazy"
                   />
                 </div>
               </div>

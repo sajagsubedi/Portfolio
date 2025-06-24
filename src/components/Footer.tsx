@@ -2,7 +2,7 @@
 
 import { Heart, Github, Linkedin, Twitter, Mail } from "lucide-react";
 
-export function Footer() {
+export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [

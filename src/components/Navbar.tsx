@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import "@/app/globals.css";
@@ -16,6 +16,7 @@ const Navbar = () => {
   const menuRef = useRef<HTMLUListElement | null>(null);
   const tl = useRef<gsap.core.Timeline | null>(null);
   const mm = gsap.matchMedia();
+  const [activeSection, setActiveSection] = useState<string>();
 
   useGSAP(() => {
     // Nav scroll and load animation
@@ -89,11 +90,11 @@ const Navbar = () => {
 
   // Hover cursor logic
   useEffect(() => {
-    const navLinks =
+    const navLinkItems =
       document.querySelectorAll<HTMLAnchorElement>("#nav #menu li a");
     const crsr = document.querySelector("#cursor");
 
-    navLinks.forEach((navLink) => {
+    navLinkItems.forEach((navLink) => {
       navLink.addEventListener("mouseenter", () => {
         crsr?.classList.add("hoverCursor");
       });
@@ -103,7 +104,7 @@ const Navbar = () => {
     });
 
     return () => {
-      navLinks.forEach((navLink) => {
+      navLinkItems.forEach((navLink) => {
         navLink.removeEventListener("mouseenter", () => {
           crsr?.classList.add("hoverCursor");
         });
@@ -112,6 +113,25 @@ const Navbar = () => {
         });
       });
     };
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Update active section based on scroll position
+      const sections = navLinks.map((item) => item.href.substring(2));
+      const currentSection = sections.find((section) => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          return rect.top <= 100 && rect.bottom >= 100;
+        }
+        return false;
+      });
+      setActiveSection(currentSection);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const openMenu = () => {
@@ -142,16 +162,24 @@ const Navbar = () => {
           </div>
         </div>
         <div className="navLinks">
-          {navLinks.map((item, ind) => (
-            <li className="navLinkItem" key={ind}>
-              <Link href={item.href} className="navLink">
-                {item.name}
-              </Link>
-              <Link href={item.href} className="hoverLink">
-                {item.name}
-              </Link>
-            </li>
-          ))}
+          {navLinks.map((item, ind) => {
+            const section = item.href.substring(2);
+            const isActive = section === activeSection;
+
+            return (
+              <li
+                className={`navLinkItem ${isActive ? "active" : ""}`}
+                key={ind}
+              >
+                <Link href={item.href} className="navLink">
+                  {item.name}
+                </Link>
+                <Link href={item.href} className="hoverLink">
+                  {item.name}
+                </Link>
+              </li>
+            );
+          })}
         </div>
       </ul>
     </nav>

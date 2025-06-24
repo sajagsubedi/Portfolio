@@ -14,12 +14,10 @@ const Cursor: React.FC = () => {
     };
 
     const handleMouseEnter = () => {
-      console.log("Mouse Enter");
       setIsCursor(true); // Show the cursor
     };
 
     const handleMouseLeave = () => {
-      console.log("Mouse Leave");
       setIsCursor(false); // Hide the cursor
     };
 
@@ -44,7 +42,7 @@ const Cursor: React.FC = () => {
         display: isCursor ? "block" : "none",
       }}
     >
-        <div className="inner-dot"></div>
+      <div className="inner-dot"></div>
     </div>
   );
 };
