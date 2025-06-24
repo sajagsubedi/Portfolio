@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import ParticleBackground from "@/components/ParticleBackground";
 import Cursor from "@/components/Cursor";
 import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollTopButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,6 +35,7 @@ export default function RootLayout({
       >
         <ParticleBackground />
         <Cursor />
+        <ScrollToTop />
         <Navbar />
         {children}
         <Footer />

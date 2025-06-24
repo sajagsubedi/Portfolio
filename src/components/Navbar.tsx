@@ -58,7 +58,7 @@ const Navbar = () => {
       },
     });
 
-    mm.add("(max-width: 800px)", () => {
+    mm.add("(max-width: 767px)", () => {
       // Sidebar menu timeline setup
       tl.current = gsap.timeline({ paused: true });
 
