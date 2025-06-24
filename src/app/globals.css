@@ -189,3 +189,46 @@
 #cursor.hoverCursor .inner-dot {
   @apply hidden;
 }
+
+.form-floating {
+  position: relative;
+}
+
+.form-floating input,
+.form-floating textarea {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.form-floating input:focus,
+.form-floating textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.form-floating label {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.form-floating input:focus + label,
+.form-floating input:not(:placeholder-shown) + label,
+.form-floating textarea:focus + label,
+.form-floating textarea:not(:placeholder-shown) + label {
+  top: -0.5rem;
+  left: 0.75rem;
+  font-size: 0.75rem;
+  color: #3b82f6;
+  background: #0a0a0a;
+  padding: 0 0.5rem;
+}

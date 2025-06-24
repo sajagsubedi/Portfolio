@@ -1,7 +1,9 @@
 "use client";
 
 import AboutSection from "@/components/About";
+import { ContactSection } from "@/components/Contact";
 import Hero from "@/components/Hero";
+import Skills from "@/components/Skills";
 import String from "@/components/String";
 import gsap from "gsap";
 import React, { useEffect } from "react";
@@ -43,6 +45,8 @@ const Page = () => {
       <Hero />
       <String />
       <AboutSection />
+      <Skills />
+      <ContactSection />
     </main>
   );
 };
