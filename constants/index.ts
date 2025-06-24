@@ -21,8 +21,46 @@ export const navLinks = [
   },
 ];
 
-export const aboutTexts = [
-  "Hello! I'm John, a passionate full-stack developer based in San Francisco. I enjoy creating things that live on the internet, whether that be websites, applications, or anything in between.",
-  "My goal is to always build products that provide pixel-perfect, performant experiences. I specialize in JavaScript technologies, particularly React and Node.js, but I'm always eager to learn new technologies and tackle challenging problems.",
-  "When I'm not coding, you can find me exploring new hiking trails, reading about the latest tech trends, or experimenting with new recipes in the kitchen.",
+export const skillCategories = [
+  {
+    title: "Frontend Development",
+    skills: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+      "GSAP",
+    ],
+  },
+  {
+    title: "Backend & Database",
+    skills: [
+      "Node.js",
+      "Go (Golang)",
+      "REST APIs",
+      "GraphQL",
+      "MongoDB",
+      "PostgreSQL",
+      "SQL",
+      "Redis",
+    ],
+  },
+  {
+    title: "DevOps & Tools",
+    skills: ["Git", "GitHub", "Docker"],
+  },
+];
+
+export const learningTech = [
+  "React Native",
+  "Web3",
+  "Blockchain",
+  "Kubernetes",
+  "Rust",
+  "Next.js",
+  "Microservices",
+  "Devops",
 ];

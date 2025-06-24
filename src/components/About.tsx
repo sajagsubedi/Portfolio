@@ -63,7 +63,7 @@ const About: React.FC = () => {
                     alt="user"
                     width={500}
                     height={500}
-                  />{" "}
+                  />
                 </div>
               </div>
               <div className="absolute -top-4 -right-4 w-24 h-24 bg-blue-600/20 rounded-full animate-pulse"></div>
