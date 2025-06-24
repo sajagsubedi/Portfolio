@@ -137,10 +137,10 @@ const Hero: React.FC = () => {
           </p>
 
           <div className="hero-buttons flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <button className="primaryButton hover-lift neon-glow">
+            <button className="primaryButton hover-lift neon-glow btn-md">
               View My Work
             </button>
-            <button className="secondaryButton hover-lift neon-glow">
+            <button className="secondaryButton hover-lift neon-glow btn-md">
               Get In Touch
             </button>
           </div>

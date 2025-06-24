@@ -43,8 +43,8 @@ export function ContactSection() {
     {
       icon: MapPin,
       label: "Location",
-      value: "Pokhara-11, Fulbari",
-      href: "https://maps.google.com/?q=Fulbari,Pokhara",
+      value: "Pokhara, Nepal",
+      href: "https://maps.google.com/?q=Pokhara",
     },
   ];
 
@@ -99,7 +99,7 @@ export function ContactSection() {
       <div ref={inViewRef} className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            <span className="gradient-text">
               Get In Touch
             </span>
           </h2>
@@ -225,7 +225,7 @@ export function ContactSection() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="primaryButton flex items-center justify-center gap-4 w-full"
+                className="primaryButton flex items-center justify-center gap-4 w-full btn-md hover-lift"
               >
                 {isSubmitting ? (
                   <>

@@ -75,9 +75,11 @@
 }
 
 /* utility classes */
-
+.btn-md {
+  @apply py-4 px-8;
+}
 .primaryButton {
-  @apply px-8 py-4 rounded-lg font-semibold transition-all duration-300;
+  @apply rounded-lg font-semibold transition-all duration-300;
   background: linear-gradient(
     135deg,
     var(--color-primary) 0%,
@@ -93,7 +95,7 @@
 }
 
 .secondaryButton {
-  @apply px-8 py-4 rounded-lg font-semibold transition-all duration-300 border-1 border-accent;
+  @apply rounded-lg font-semibold transition-all duration-300 border-1 border-accent;
 }
 
 .secondaryButton:hover {
@@ -208,8 +210,8 @@
 .form-floating input:focus,
 .form-floating textarea:focus {
   outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px var(--color-primary-blur);
 }
 
 .form-floating label {
@@ -228,7 +230,7 @@
   top: -0.5rem;
   left: 0.75rem;
   font-size: 0.75rem;
-  color: #3b82f6;
+  color: var(--color-primary);
   background: #0a0a0a;
   padding: 0 0.5rem;
 }
