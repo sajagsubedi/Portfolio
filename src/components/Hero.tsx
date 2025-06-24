@@ -174,7 +174,7 @@ const Hero: React.FC = () => {
 
       <button
         onClick={scrollToAbout}
-        className="chevron-float absolute bottom-0 left-1/2 transform -translate-x-1/2 text-gray-400 hover:text-blue-400 transition-colors duration-300"
+        className="chevron-float absolute -bottom-6 left-1/2 transform -translate-x-1/2 text-gray-400 hover:text-blue-400 transition-colors duration-300"
       >
         <ChevronDown size={32} />
       </button>
