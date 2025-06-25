@@ -21,21 +21,6 @@ const Skills: React.FC = () => {
       { opacity: 0, y: 50 },
       { opacity: 1, y: 0, duration: 0.8, stagger: 0.2, ease: "power2.out" }
     );
-
-    gsap.fromTo(
-      ".skill-bar",
-      { width: "0%" },
-      {
-        width: (index, target) => target.getAttribute("data-width") + "%",
-        duration: 1.5,
-        ease: "power2.out",
-        stagger: 0.1,
-        scrollTrigger: {
-          trigger: ".skills-container",
-          start: "top 60%",
-        },
-      }
-    );
   }, []);
 
   return (

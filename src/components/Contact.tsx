@@ -11,6 +11,7 @@ import {
   Linkedin,
   Twitter,
 } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 export function ContactSection() {
   const form = useRef<HTMLFormElement>(null);
@@ -83,7 +84,13 @@ export function ContactSection() {
     setIsSubmitting(true);
 
     try {
-      console.log("Sending");
+      await emailjs.send(
+        "service_28p58f9",
+        "template_ga97rxq",
+        formData,
+        process.env.NEXT_PUBLIC_KEY
+      );
+      setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
       console.error("EmailJS error:", error);
     } finally {
@@ -99,9 +106,7 @@ export function ContactSection() {
       <div ref={inViewRef} className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-            <span className="gradient-text">
-              Get In Touch
-            </span>
+            <span className="gradient-text">Get In Touch</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             Have a project in mind or just want to chat? I&apos;d love to hear

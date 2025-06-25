@@ -1,0 +1,10 @@
+//robots.txt
+ 
+# Block all crawlers for /accounts
+User-agent: *
+Disallow: /api
+Disallow:/_next
+ 
+# Allow all crawlers
+User-agent: *
+Allow: /

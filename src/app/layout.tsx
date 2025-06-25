@@ -20,7 +20,35 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Sajag Subedi: Innovative Web Developer",
   description:
-    "Driven higher secondary student with a passion for technology and development. Continuously expanding my skills across various domains, I thrive on tackling challenges and bringing innovative solutions to life. Eager to contribute to impactful projects and collaborate with forward-thinking professionals.",
+    "Full-stack web developer crafting intuitive apps with modern tech, smooth UI/UX, animations, and efficient backend systems.",
+  keywords: [
+    "Sajag Subedi",
+    "Sajag",
+    "Subedi",
+    "Web Developer",
+    "Developer",
+    "Coder",
+    "Programmer",
+    "Innovative",
+  ],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+    },
+  },
+  metadataBase: new URL(process.env.NEXT_BASE_URL!),
+  alternates: {
+    canonical: "/",
+  },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-icon.png",
+  },
 };
 
 export default function RootLayout({
