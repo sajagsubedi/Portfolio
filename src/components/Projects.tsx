@@ -4,7 +4,12 @@ import { useState, useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import { ExternalLink, Github, Filter } from "lucide-react";
 import Image from "next/image";
-import { projects, Project } from "../../constants";
+import {
+  projects,
+  Project,
+  contactInfo as contactInfoConstants,
+} from "../../constants";
+import Link from "next/link";
 
 export default function ProjectsSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -38,7 +43,7 @@ export default function ProjectsSection() {
     <section
       id="projects"
       ref={sectionRef}
-      className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
+      className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden section"
     >
       <div ref={inViewRef} className="max-w-7xl mx-auto">
         {/* Section Header */}
@@ -61,7 +66,7 @@ export default function ProjectsSection() {
                 filter === category.id
                   ? "primaryButton"
                   : "glass text-gray-300 hover:text-white hover:bg-white/10"
-              } px-6 py-3 !rounded-full font-medium transition-all duration-300 flex items-center gap-2 `}
+              } px-6 py-3 !rounded-full font-medium transition-all duration-300 flex items-center gap-2 cursor-activate`}
             >
               <Filter className="w-4 h-4" />
               {category.label}
@@ -93,7 +98,7 @@ export default function ProjectsSection() {
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 bg-black/50 rounded-full text-white hover:bg-black/70 transition-colors"
+                    className="p-2 bg-black/50 rounded-full text-white hover:bg-black/70 transition-colors cursor-activate"
                   >
                     <Github className="w-4 h-4" />
                   </a>
@@ -136,22 +141,22 @@ export default function ProjectsSection() {
 
                 {/* Action Buttons */}
                 <div className="flex gap-3">
-                  <a
+                  <Link
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex-1 text-center py-2 primaryButton font-medium rounded-lg hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300"
                   >
                     View Live
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2 border border-gray-600 text-gray-300 text-sm font-medium rounded-lg hover:border-white hover:text-white transition-colors"
+                    className="px-4 py-2 border border-gray-600 text-gray-300 text-sm font-medium rounded-lg hover:border-white hover:text-white transition-colors cursor-activate"
                   >
                     Code
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -161,15 +166,17 @@ export default function ProjectsSection() {
         {/* CTA */}
         <div className="text-center mt-16">
           <p className="text-gray-400 mb-6">Want to see more of my work?</p>
-          <a
-            href="https://github.com/johndoe"
+          <Link
+            href={contactInfoConstants.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-3 primaryButton text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300"
+            className="cursor-activate"
           >
-            <Github className="w-5 h-5" />
-            View All Projects
-          </a>
+            <button className="inline-flex items-center gap-2 px-8 py-3 primaryButton text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300">
+              <Github className="w-5 h-5" />
+              View All Projects
+            </button>
+          </Link>
         </div>
       </div>
     </section>

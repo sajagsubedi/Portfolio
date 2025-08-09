@@ -11,6 +11,7 @@ import {
   Linkedin,
   Twitter,
 } from "lucide-react";
+import { contactInfo as contactInfoConstants } from "../../constants";
 import emailjs from "@emailjs/browser";
 
 export function ContactSection() {
@@ -32,20 +33,20 @@ export function ContactSection() {
     {
       icon: Mail,
       label: "Email",
-      value: "sajagsubedi03@gmail.com",
-      href: "mailto:sajagsubedi03@gmail.com",
+      value: contactInfoConstants.email,
+      href: `mailto:${contactInfoConstants.email}`,
     },
     {
       icon: Phone,
       label: "Phone",
-      value: "+977 9769495964",
-      href: "tel:+9779769495964",
+      value: contactInfoConstants.phone,
+      href: `tel:${contactInfoConstants.phone}`,
     },
     {
       icon: MapPin,
       label: "Location",
-      value: "Pokhara, Nepal",
-      href: "https://maps.google.com/?q=Pokhara",
+      value: contactInfoConstants.location,
+      href: `https://maps.google.com/?q=${contactInfoConstants.location}`,
     },
   ];
 
@@ -53,17 +54,17 @@ export function ContactSection() {
     {
       icon: Github,
       label: "GitHub",
-      href: "https://github.com/johndoe",
+      href: contactInfoConstants.github,
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      href: "https://linkedin.com/in/johndoe",
+      href: contactInfoConstants.linkedin,
     },
     {
       icon: Twitter,
       label: "Twitter",
-      href: "https://twitter.com/johndoe",
+      href: contactInfoConstants.twitter,
     },
   ];
 
@@ -101,7 +102,7 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
+      className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden section"
     >
       <div ref={inViewRef} className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
@@ -133,6 +134,8 @@ export function ContactSection() {
                 <a
                   key={info.label}
                   href={info.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 glass rounded-lg hover:bg-white/10 transition-all duration-300 group"
                 >
                   <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-primary to-accent rounded-lg flex items-center justify-center group-hover:shadow-lg group-hover:shadow-primary/25 transition-all duration-300">
@@ -157,7 +160,7 @@ export function ContactSection() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`w-12 h-12 rounded-lg flex items-center justify-center glass transition-all duration-300 text-primary hover-lift`}
+                    className={`w-12 h-12 rounded-lg flex items-center justify-center glass transition-all duration-300 text-primary hover-lift cursor-activate`}
                   >
                     <social.icon className="w-5 h-5" />
                     <span className="sr-only">{social.label}</span>
@@ -230,7 +233,7 @@ export function ContactSection() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="primaryButton flex items-center justify-center gap-4 w-full btn-md hover-lift"
+                className="primaryButton flex items-center justify-center gap-4 w-full btn-md hover-lift cursor-activate"
               >
                 {isSubmitting ? (
                   <>

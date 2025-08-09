@@ -8,6 +8,9 @@ import Skills from "@/components/Skills";
 import String from "@/components/String";
 import gsap from "gsap";
 import React, { useEffect } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Page = () => {
   useEffect(() => {
@@ -41,6 +44,39 @@ const Page = () => {
       );
     });
   }, []);
+
+  // Hover cursor logic
+  useEffect(() => {
+    const cursorActivateLinks = document.querySelectorAll(".cursor-activate");
+    const crsr = document.querySelector("#cursor");
+
+    const handleMouseMove = (e: MouseEvent) => {
+      let insideCount = 0;
+      cursorActivateLinks.forEach((element) => {
+        const rect = element.getBoundingClientRect();
+        const inside =
+          e.clientX >= rect.left &&
+          e.clientX <= rect.right &&
+          e.clientY >= rect.top &&
+          e.clientY <= rect.bottom;
+        if (inside) {
+          insideCount += 1;
+        }
+      });
+      if (insideCount > 0) {
+        crsr?.classList.add("hoverCursor");
+      } else {
+        crsr?.classList.remove("hoverCursor");
+      }
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
   return (
     <main>
       <Hero />

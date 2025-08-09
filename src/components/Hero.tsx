@@ -3,6 +3,8 @@
 import React, { useEffect, useRef } from "react";
 import { ChevronDown, Github, Linkedin, Mail } from "lucide-react";
 import { gsap } from "gsap";
+import { contactInfo as contactInfoConstants } from "../../constants";
+import Link from "next/link";
 
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -137,37 +139,41 @@ const Hero: React.FC = () => {
           </p>
 
           <div className="hero-buttons flex flex-row gap-4 justify-center mb-16">
-            <button className="primaryButton hover-lift neon-glow btn-md">
-              View My Work
-            </button>
-            <button className="secondaryButton hover-lift neon-glow btn-md">
-              Get In Touch
-            </button>
+            <Link href="/#projects" className="cursor-activate">
+              <button className="primaryButton hover-lift neon-glow btn-md cursor-activate">
+                View My Work
+              </button>
+            </Link>
+            <Link href="/#contact" className="cursor-activate">
+              <button className="secondaryButton hover-lift neon-glow btn-md cursor-activate">
+                Get In Touch
+              </button>
+            </Link>
           </div>
 
           <div className="hero-social flex justify-center space-x-6">
-            <a
-              href="https://github.com/sajagsubedi"
+            <Link
+              href={contactInfoConstants.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 glass rounded-full hover:bg-blue-600/20 transition-all duration-300 hover-lift"
+              className="p-3 glass rounded-full hover:bg-blue-600/20 transition-all duration-300 hover-lift cursor-activate"
             >
               <Github size={24} />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/sajagsubedi/"
+            </Link>
+            <Link
+              href={contactInfoConstants.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 glass rounded-full hover:bg-blue-600/20 transition-all duration-300 hover-lift"
+              className="p-3 glass rounded-full hover:bg-blue-600/20 transition-all duration-300 hover-lift cursor-activate"
             >
               <Linkedin size={24} />
-            </a>
-            <a
-              href="mailto:sajagsubedi03@gmail.com"
-              className="p-3 glass rounded-full hover:bg-blue-600/20 transition-all duration-300 hover-lift"
+            </Link>
+            <Link
+              href={`mailto:${contactInfoConstants.email}`}
+              className="p-3 glass rounded-full hover:bg-blue-600/20 transition-all duration-300 hover-lift cursor-activate"
             >
               <Mail size={24} />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

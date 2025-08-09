@@ -1,25 +1,26 @@
 "use client";
 
 import { Heart, Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { contactInfo as contactInfoConstants } from "../../constants";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: Github, href: "https://github.com/sajagsubedi", label: "GitHub" },
+    { icon: Github, href: contactInfoConstants.github, label: "GitHub" },
     {
       icon: Linkedin,
-      href: "https://linkedin.com/in/sajagsubedi",
+      href: contactInfoConstants.linkedin,
       label: "LinkedIn",
     },
     {
       icon: Twitter,
-      href: "https://twitter.com/sajag_subedi",
+      href: contactInfoConstants.twitter,
       label: "Twitter",
     },
     {
       icon: Mail,
-      href: "mailto:sajagsubedi03@gmail.com",
+      href: `mailto:${contactInfoConstants.email}`,
       label: "Email",
     },
   ];
@@ -59,7 +60,7 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 hover-lift transition-all duration-300"
+                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 hover-lift transition-all duration-300 cursor-activate"
                 >
                   <social.icon className="w-5 h-5" />
                   <span className="sr-only">{social.label}</span>
@@ -73,7 +74,7 @@ export default function Footer() {
             <h4 className="text-lg font-semibold text-white">Quick Links</h4>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
-                <li key={link.name}>
+                <li key={link.name} className="cursor-activate">
                   <button
                     onClick={() => scrollToSection(link.href)}
                     className="text-gray-400 hover:text-blue-400 transition-colors"
@@ -89,14 +90,14 @@ export default function Footer() {
           <div className="space-y-4">
             <h4 className="text-lg font-semibold text-white">Get In Touch</h4>
             <div className="space-y-2 text-gray-400">
-              <p>Pokhara, Nepal</p>
-              <p>sajagsubedi03@gmail.com</p>
-              <p>+977 9769495964</p>
+              <p>{contactInfoConstants.location}</p>
+              <p>{contactInfoConstants.email}</p>
+              <p>{contactInfoConstants.phone}</p>
             </div>
             <div className="pt-4">
               <button
                 onClick={() => scrollToSection("#contact")}
-                className="primaryButton hover-lift px-5 py-2 neon-glow"
+                className="primaryButton hover-lift px-5 py-2 neon-glow cursor-activate"
               >
                 Start a Project
               </button>

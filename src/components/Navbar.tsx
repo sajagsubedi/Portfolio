@@ -88,33 +88,6 @@ const Navbar = () => {
     });
   }, []);
 
-  // Hover cursor logic
-  useEffect(() => {
-    const navLinkItems =
-      document.querySelectorAll<HTMLAnchorElement>("#nav #menu li a");
-    const crsr = document.querySelector("#cursor");
-
-    navLinkItems.forEach((navLink) => {
-      navLink.addEventListener("mouseenter", () => {
-        crsr?.classList.add("hoverCursor");
-      });
-      navLink.addEventListener("mouseout", () => {
-        crsr?.classList.remove("hoverCursor");
-      });
-    });
-
-    return () => {
-      navLinkItems.forEach((navLink) => {
-        navLink.removeEventListener("mouseenter", () => {
-          crsr?.classList.add("hoverCursor");
-        });
-        navLink.removeEventListener("mouseout", () => {
-          crsr?.classList.remove("hoverCursor");
-        });
-      });
-    };
-  }, []);
-
   useEffect(() => {
     const handleScroll = () => {
       // Update active section based on scroll position
@@ -171,10 +144,10 @@ const Navbar = () => {
                 className={`navLinkItem ${isActive ? "active" : ""}`}
                 key={ind}
               >
-                <Link href={item.href} className="navLink">
+                <Link href={item.href} className="navLink cursor-activate">
                   {item.name}
                 </Link>
-                <Link href={item.href} className="hoverLink">
+                <Link href={item.href} className="hoverLink cursor-activate">
                   {item.name}
                 </Link>
               </li>

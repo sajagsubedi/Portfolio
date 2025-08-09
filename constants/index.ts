@@ -100,7 +100,7 @@ export const projects: Project[] = [
     technologies: ["Next.js", "Node.js", "Graphql", "MongoDB", "Tailwind CSS"],
     category: "fullstack",
     githubUrl: "https://github.com/sajagsubedi/ProjectHub_Frontend",
-    liveUrl: "https://projecthub-demo.vercel.app",
+    liveUrl: "https://projecthub.sajagsubedi.com.np",
   },
   {
     id: 3,
@@ -136,7 +136,7 @@ export const projects: Project[] = [
     technologies: ["Node.js", "Express", "Mongodb", "Cloudinary"],
     category: "backend",
     githubUrl: "https://github.com/sajagsubedi/clipnest",
-    liveUrl: "https://clipnest.vercel.app",
+    liveUrl: "#",
   },
   {
     id: 6,
@@ -173,6 +173,15 @@ export const projects: Project[] = [
     technologies: ["Next.js", "Node.js", "Socket.io", "Tailwind CSS"],
     category: "fullstack",
     githubUrl: "https://github.com/sajagsubedi/TicTacToe_Frontend",
-    liveUrl: "https://tictactoesajag.vercel.app/",
+    liveUrl: "https://tictactoe.sajagsubedi.com.np/",
   },
 ];
+
+export const contactInfo = {
+  email: "sajagsubedi03@gmail.com",
+  phone: "+977 9769495964",
+  location: "Pokhara, Nepal",
+  github: "https://github.com/sajagsubedi",
+  linkedin: "https://www.linkedin.com/in/sajagsubedi",
+  twitter: "https://twitter.com/sajag_subedi",
+};
